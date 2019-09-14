@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>833940248338-ekkt3bovutrp3c3h0rdvjchqfqcqnvl2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.833940248338-ekkt3bovutrp3c3h0rdvjchqfqcqnvl2</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>833940248338-pkk6tk2744n7lv68hg8uihvpgnp5i6sh.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMWo8LjYrdrDmDjGVqWDCasgVDjCaeVzM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>833940248338</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.platzi.platziApp</string>
+	<key>PROJECT_ID</key>
+	<string>platzitrips-29207</string>
+	<key>STORAGE_BUCKET</key>
+	<string>platzitrips-29207.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:833940248338:ios:0c2ac1ab28bf98e1a345cb</string>
+	<key>DATABASE_URL</key>
+	<string>https://platzitrips-29207.firebaseio.com</string>
+</dict>
+</plist>
