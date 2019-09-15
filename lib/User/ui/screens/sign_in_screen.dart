@@ -6,6 +6,7 @@ import 'package:platzi_app/User/bloc/bloc_user.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:platzi_app/platzi_trips_cupertino.dart';
+import 'package:platzi_app/User/model/user.dart';
 
 class SignInScreen extends StatefulWidget {
 
@@ -19,10 +20,12 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreen extends State<SignInScreen> {
 
   UserBloc userBloc;
+  double screenWidth;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    screenWidth = MediaQuery.of(context).size.width;
     userBloc = BlocProvider.of(context);
     return _handleCurrentSession();
   }
@@ -46,23 +49,36 @@ class _SignInScreen extends State<SignInScreen> {
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          GradientBack("", null),
+          GradientBack(height: null),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Welcome \n This is your Travel App",
-                style: TextStyle(
-                  fontSize: 37.0,
-                  fontFamily: "Lato",
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
+              Flexible(
+                child: Container(
+                  width: screenWidth,
+                  child: Text("Welcome \n This is your Travel App",
+                    style: TextStyle(
+                        fontSize: 37.0,
+                        fontFamily: "Lato",
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
                 ),
               ),
+
               ButtonGreen(
                   text: "Login with Gmail",
                   onPressed: () {
-                    userBloc.signIn()
-                    .then((FirebaseUser user) => print("El usuario es ${user.displayName}"));
+                    userBloc.signOut();
+                    userBloc.signIn().then((FirebaseUser user) {
+                      userBloc.updateUserData(User(
+                        uid: user.uid,
+                        name: user.displayName,
+                        email: user.email,
+                        imgProfile: user.photoUrl
+                      ));
+                    });
                   },
                   width: 300.0,
                   height: 50.0,
