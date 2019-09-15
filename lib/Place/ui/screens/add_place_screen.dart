@@ -75,7 +75,7 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                   )
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20.0),
+                  margin: EdgeInsets.only(top: 30.0, bottom: 20.0),
                   child: TextInput(
                     hintText: "Title",
                     inputType: null,
