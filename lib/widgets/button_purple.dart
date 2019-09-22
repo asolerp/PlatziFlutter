@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class ButtonPurple extends StatefulWidget {
+class ButtonPurple extends StatelessWidget {
 
   final String buttonText;
   final VoidCallback onPressed;
@@ -14,20 +14,10 @@ class ButtonPurple extends StatefulWidget {
 
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _ButtonPurple();
-  }
-
-}
-
-class _ButtonPurple extends State<ButtonPurple> {
-
-  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return InkWell(
-      onTap: widget.onPressed,
+      onTap: onPressed,
       child: Container(
         margin: EdgeInsets.only(
             top: 30.0,
@@ -54,7 +44,7 @@ class _ButtonPurple extends State<ButtonPurple> {
 
         child: Center(
           child: Text(
-            widget.buttonText,
+            buttonText,
             style: TextStyle(
               fontSize: 18.0,
               fontFamily: "Lato",

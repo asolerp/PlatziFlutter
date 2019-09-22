@@ -28,12 +28,13 @@ class AddPlaceScreen extends StatefulWidget {
 
 class _AddPlaceScreen extends State<AddPlaceScreen> {
   @override
+
+  final _controllerTitlePlace = TextEditingController();
+  final _controllerDescriptionPlace = TextEditingController();
+
   Widget build(BuildContext context) {
 
     UserBloc userBloc = BlocProvider.of<UserBloc>(context);
-    
-    final _controllerTitlePlace = TextEditingController();
-    final _controllerDescription = TextEditingController();
 
     // TODO: implement build
     return Scaffold(
@@ -73,7 +74,7 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                 Container(
                   alignment: Alignment.center,
                   child: CardImageWithFabIcon(
-                      pathImage: "assets/img/beach_palm.jpeg",
+                      pathImage: widget.image.path,
                       iconData: Icons.camera_alt,
                       width: 350.0,
                       height: 250.0,
@@ -93,7 +94,7 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                   hintText: "Description",
                   inputType: TextInputType.multiline,
                   maxLines: 4,
-                  controller: _controllerDescription,
+                  controller: _controllerDescriptionPlace,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20.0),
@@ -109,7 +110,7 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                     onPressed: () {
                       userBloc.updatePlaceData(Place(
                         name: _controllerTitlePlace.text,
-                        description: _controllerDescription.text,
+                        description: _controllerDescriptionPlace.text,
                         likes: 0,
                       )).whenComplete(() {
                         print("TERMINO");

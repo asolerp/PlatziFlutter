@@ -51,9 +51,9 @@ class PlatziTripsCupertino extends StatelessWidget {
                 },
               );
               break;
-
+            default:
+              return null;
           }
-
         },
       ),
     );
