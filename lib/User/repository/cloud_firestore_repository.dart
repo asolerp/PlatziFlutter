@@ -14,7 +14,7 @@ class CloudFireStoreRepository {
   Future<void> updatePlaceData(Place place) =>
       _cloudFireStoreAPI.updatePlaceData(place);
 
-  List<ProfilePlace> bildPlaces(List<DocumentSnapshot> placesListSnapshot) =>
-      _cloudFireStoreAPI.bildPlaces(placesListSnapshot);
+  List<ProfilePlace> buildPlaces(List<DocumentSnapshot> placesListSnapshot) =>
+      _cloudFireStoreAPI.buildPlaces(placesListSnapshot);
 
 }

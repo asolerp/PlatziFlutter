@@ -22,6 +22,7 @@ class UserBloc implements Bloc {
   //StreamController
   Stream<FirebaseUser> streamFirebase = FirebaseAuth.instance.onAuthStateChanged;
   Stream<FirebaseUser> get authStatus => streamFirebase;
+
   Future<FirebaseUser> get currentUser => FirebaseAuth.instance.currentUser();
   // Casos de uso
 
@@ -30,8 +31,10 @@ class UserBloc implements Bloc {
 
   //2. Registrar usuario en base de datos
   final _cloudFireStoreRepository = CloudFireStoreRepository();
+
   void updateUserData(User user) => _cloudFireStoreRepository.updateUserDataFireStore(user);
   Future<void> updatePlaceData(Place place) => _cloudFireStoreRepository.updatePlaceData(place);
+
   Stream<QuerySnapshot> placesListStream = Firestore.instance.collection(CloudFireStoreAPI().PLACES).snapshots();
   Stream<QuerySnapshot> get placesStream => placesListStream;
   List<ProfilePlace> builPlaces(List<DocumentSnapshot> placeListSnapshot) => _cloudFireStoreRepository.bildPlaces(placeListSnapshot);

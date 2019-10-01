@@ -23,7 +23,6 @@ class CloudFireStoreAPI {
       'myPlaces': user.myPlaces,
       'myFovoritePlaces': user.myFavoritePlaces,
       'lastSignIn': DateTime.now()
-
     }, merge: true);
   }
 
@@ -36,7 +35,7 @@ class CloudFireStoreAPI {
         'name': place.name,
         'description': place.description,
         'likes': place.likes,
-         'urlImage': place.urlImage,
+        'urlImage': place.urlImage,
         'userOwner': _db.document("${USERS}/${user.uid}")
       }).then((DocumentReference dr) {
         dr.get().then((DocumentSnapshot snapshot) {
@@ -50,7 +49,7 @@ class CloudFireStoreAPI {
     });
   }
 
-  List<ProfilePlace> bildPlaces(List<DocumentSnapshot> placesListSnapshot) {
+  List<ProfilePlace> buildPlaces(List<DocumentSnapshot> placesListSnapshot) {
 
     List<ProfilePlace> profilePlaces = List<ProfilePlace>();
 
