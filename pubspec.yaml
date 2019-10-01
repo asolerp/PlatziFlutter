@@ -30,7 +30,6 @@ dependencies:
   cloud_firestore: ^0.12.9+3
   image_picker: ^0.5.4+3
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -20,7 +20,7 @@ class AddPlaceScreen extends StatefulWidget {
   AddPlaceScreen({
     Key key,
     this.image
-});
+  });
 
   @override
   State createState() {
@@ -31,10 +31,10 @@ class AddPlaceScreen extends StatefulWidget {
 class _AddPlaceScreen extends State<AddPlaceScreen> {
   @override
 
-  final _controllerTitlePlace = TextEditingController();
-  final _controllerDescriptionPlace = TextEditingController();
-
   Widget build(BuildContext context) {
+
+    final _controllerTitlePlace = TextEditingController();
+    final _controllerDescriptionPlace = TextEditingController();
 
     UserBloc userBloc = BlocProvider.of<UserBloc>(context);
 
@@ -117,7 +117,6 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                         if(user != null) {
                           String uid = user.uid;
                           String path = "${uid}/${DateTime.now().toString()}.jpg";
-
                           userBloc.uploadFile(path, widget.image)
                           .then((StorageUploadTask storageUploadTask) {
                             storageUploadTask.onComplete.then((StorageTaskSnapshot snapshot) {
@@ -138,7 +137,6 @@ class _AddPlaceScreen extends State<AddPlaceScreen> {
                           });
                         }
                       });
-
                     }
                   ),
                 )

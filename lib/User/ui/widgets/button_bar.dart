@@ -27,21 +27,19 @@ class ButtonsBar extends StatelessWidget {
 
             //Añadiremos un nuevo lugar
             CircleButton(false, Icons.add, 40.0, Color.fromRGBO(255, 255, 255, 1),
-                    () {
-                      File image;
-
-                      ImagePicker.pickImage(source: ImageSource.camera)
-                          .then((File image) {
-                            Navigator.push(context,
-                            MaterialPageRoute(builder: (BuildContext context) => AddPlaceScreen(image: image)));
-                          })
-                          .catchError((onError) => print(onError));
+                    () async {
+                         await ImagePicker.pickImage(source: ImageSource.gallery)
+                         .then((File image) {
+                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => AddPlaceScreen(image: image)));
+                         })
+                      .catchError((onError) {
+                        print(onError);
+                      });
                     }),
-
             //Cerrar sesión
             CircleButton(true, Icons.exit_to_app, 20.0, Color.fromRGBO(255, 255, 255, 0.6),
-                    () => {
-                      userBloc.signOut()
+                    () {
+                      userBloc.signOut();
                     }),
           ],
         )

@@ -27,6 +27,8 @@ class ProfileHeader extends StatelessWidget {
             return showProfileData(snapshot);
           case ConnectionState.done:
             return showProfileData(snapshot);
+          default:
+            return showProfileData(snapshot);
         }
       },
     );
